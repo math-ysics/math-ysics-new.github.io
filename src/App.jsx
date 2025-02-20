@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const menuItems = [
-    { title: 'About', link: '#' },
+    { title: 'Information', link: '#' },
     { title: 'Be Stochastic', link: '#' }
   ];
 
