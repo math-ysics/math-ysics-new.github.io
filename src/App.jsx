@@ -3,21 +3,14 @@ import { Menu, X } from 'lucide-react';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const menuItems = [
-    { title: 'Research', link: '#' },
-    { title: 'Safety', link: '#' },
-    { title: 'ChatGPT', link: '#' },
-    { title: 'Sora', link: '#' },
-    { title: 'API Platform', link: '#' },
-    { title: 'For Business', link: '#' },
-    { title: 'Stories', link: '#' },
-    { title: 'Company', link: '#' },
-    { title: 'News', link: '#' }
+    { title: 'About', link: '#' },
+    { title: 'Be Stochastic', link: '#' }
   ];
 
   return (
     <div className={`fixed top-0 left-0 h-full w-64 bg-black text-white p-6 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out`}>
       <div className="flex items-center justify-between mb-8">
-        <span className="text-xl font-semibold">OpenAI</span>
+        <span className="text-xl font-semibold">Michael Chen</span>
         <button onClick={toggleSidebar} className="text-white">
           <X className="w-6 h-6" />
         </button>
