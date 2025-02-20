@@ -1,3 +1,7 @@
+# Website
+
+New website coming soon.
+
 # Tailwind CSS + React + Vite Setup
 
 This project uses Tailwind CSS with React and Vite.
