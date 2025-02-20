@@ -2,6 +2,10 @@
 
 New website coming soon.
 
+# Run
+
+Run with ```npm install``` then ```npm run dev```.
+
 # Tailwind CSS + React + Vite Setup
 
 This project uses Tailwind CSS with React and Vite.
