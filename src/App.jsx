@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Information from './pages/Information';
+import BeStochastic from './pages/BeStochastic';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const menuItems = [
-    { title: 'Information', link: '#' },
-    { title: 'Be Stochastic', link: '#' }
+    { title: 'Information', link: '/' },
+    { title: 'Be Stochastic', link: '/be-stochastic' }
   ];
 
   return (
@@ -19,9 +22,13 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <ul className="space-y-4">
           {menuItems.map((item, index) => (
             <li key={index}>
-              <a href={item.link} className="hover:text-gray-300 transition-colors duration-200">
+              <Link 
+                to={item.link} 
+                className="hover:text-gray-300 transition-colors duration-200"
+                onClick={toggleSidebar}
+              >
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -48,20 +55,16 @@ const App = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen text-white">
-      <Header toggleSidebar={toggleSidebar} />
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="pt-16 flex flex-col h-screen">
-        <div className="flex h-1/2 border-b border-white">
-          <div className="w-2/5 border-r border-white p-4">Top Left</div>
-          <div className="w-3/5 p-4">Top Right</div>
-        </div>
-        <div className="flex h-1/2">
-          <div className="w-3/5 border-r border-white p-4">Bottom Left</div>
-          <div className="w-2/5 p-4">Bottom Right</div>
-        </div>
+    <Router>
+      <div className="bg-black min-h-screen text-white">
+        <Header toggleSidebar={toggleSidebar} />
+        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+        <Routes>
+          <Route path="/" element={<Information />} />
+          <Route path="/be-stochastic" element={<BeStochastic />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 };
 
