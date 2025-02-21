@@ -12,29 +12,49 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   ];
 
   return (
-    <div className={`fixed top-0 left-0 h-48 w-64 bg-black text-white p-6 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out`}>
-      <div className="flex items-center justify-between mb-8">
-        <span className="text-xl font-semibold">Michael Chen</span>
-        <button onClick={toggleSidebar} className="text-white">
-          <X className="w-6 h-6" />
-        </button>
+    <>
+      <button onClick={toggleSidebar} className="fixed top-5 left-5 text-white z-[60]">
+        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
+      <div 
+        className={`fixed top-0 left-0 h-screen w-64 bg-black/40 backdrop-blur-sm transition-all duration-300 ease-in-out transform z-[55]
+          ${isOpen 
+            ? 'translate-x-0 opacity-100 pointer-events-auto' 
+            : '-translate-x-8 opacity-0 pointer-events-none'}`}
+      >
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%)'
+        }}></div>
+        <div className="pt-20 px-6 relative z-10 text-white">
+          <span className={`text-xl font-semibold block mb-8 transition-opacity duration-300 ${
+            isOpen ? 'opacity-100' : 'opacity-0'
+          }`}>Michael Chen</span>
+          <nav>
+            <ul className="space-y-4">
+              {menuItems.map((item, index) => (
+                <li 
+                  key={index}
+                  className="transform transition-all duration-300"
+                  style={{
+                    opacity: isOpen ? 1 : 0,
+                    transform: isOpen ? `translateY(0)` : 'translateY(-20px)',
+                    transitionDelay: isOpen ? `${index * 100}ms` : '0ms'
+                  }}
+                >
+                  <Link 
+                    to={item.link} 
+                    className="hover:text-gray-300 transition-colors duration-200"
+                    onClick={toggleSidebar}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
-      <nav>
-        <ul className="space-y-4">
-          {menuItems.map((item, index) => (
-            <li key={index}>
-              <Link 
-                to={item.link} 
-                className="hover:text-gray-300 transition-colors duration-200"
-                onClick={toggleSidebar}
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </div>
+    </>
   );
 };
 
@@ -73,7 +93,7 @@ const Header = ({ toggleSidebar }) => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 p-5 flex items-center justify-between z-50 transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 p-5 flex items-center justify-between z-[50] transition-all duration-300 ${
       isScrolled 
         ? 'bg-black/40 backdrop-blur-sm' 
         : 'bg-black/50'
@@ -83,11 +103,8 @@ const Header = ({ toggleSidebar }) => {
           ? 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.15) 70%, rgba(0,0,0,0) 100%)'
           : 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%)'
       }}></div>
-      <div className="flex items-center relative z-10">
-        <button onClick={toggleSidebar} className="text-white">
-          <Menu className="w-6 h-6" />
-        </button>
-        <h1 className="ml-4 text-xl">{getPageTitle()}</h1>
+      <div className="flex items-center relative z-10 ml-16">
+        <h1 className="text-xl">{getPageTitle()}</h1>
       </div>
       <div className="flex space-x-6 relative z-10">
         {links.map((link, index) => (
