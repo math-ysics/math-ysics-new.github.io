@@ -64,12 +64,12 @@ const Header = ({ toggleSidebar }) => {
   };
 
   const links = [
-    { name: 'Caltech', url: 'https://www.caltech.edu' },
-    { name: 'Google Scholar', url: 'https://scholar.google.com' },
-    { name: 'GitHub', url: 'https://github.com' },
-    { name: 'Hugging Face', url: 'https://huggingface.co' },
-    { name: 'Codeforces', url: 'https://codeforces.com' },
-    { name: 'LinkedIn', url: 'https://linkedin.com' }
+    { name: 'California Institute of Technology', url: 'https://www.caltech.edu/' },
+    { name: 'Google Scholar', url: 'https://scholar.google.com/citations?user=XfrUtqEAAAAJ' },
+    { name: 'GitHub', url: 'https://github.com/math-ysics' },
+    { name: 'Hugging Face', url: 'https://huggingface.co/ai-net' },
+    { name: 'Codeforces', url: 'https://codeforces.com/profile/Lpspace' },
+    { name: 'LinkedIn', url: 'https://linkedin.com/in/michaelc0' }
   ];
 
   return (
