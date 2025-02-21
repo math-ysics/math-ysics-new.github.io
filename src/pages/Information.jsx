@@ -150,6 +150,20 @@ const Information = () => {
           </div>
         </div>
       </div>
+      <div className="flex border-t border-white">
+        <div className="w-4/5 border-r border-white p-4">
+          <img 
+            src="/images/nagoya.jpg"
+            alt="Nagoya cityscape"
+            className="w-full object-cover rounded-lg"
+          />
+        </div>
+        <div className="w-1/5 p-4 flex items-center">
+          <p className="leading-relaxed text-gray-200">
+            I am from <a href="https://nagoya-info.jp" className="underline decoration-white">Nagoya</a>.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
