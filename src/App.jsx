@@ -11,7 +11,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   ];
 
   return (
-    <div className={`fixed top-0 left-0 h-full w-64 bg-black text-white p-6 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out`}>
+    <div className={`fixed top-0 left-0 h-48 w-64 bg-black text-white p-6 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out`}>
       <div className="flex items-center justify-between mb-8">
         <span className="text-xl font-semibold">Michael Chen</span>
         <button onClick={toggleSidebar} className="text-white">
