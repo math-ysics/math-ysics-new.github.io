@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Information from './pages/Information';
 import BeStochastic from './pages/BeStochastic';
 
@@ -38,12 +38,38 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 };
 
 const Header = ({ toggleSidebar }) => {
+  const location = useLocation();
+  const getPageTitle = () => {
+    switch(location.pathname) {
+      case '/':
+        return 'Information';
+      case '/be-stochastic':
+        return 'Be Stochastic';
+      default:
+        return '';
+    }
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 bg-black p-4 flex justify-between items-center">
+    <header className="fixed top-0 left-0 right-0 bg-black p-5 flex items-center">
       <button onClick={toggleSidebar} className="text-white">
         <Menu className="w-6 h-6" />
       </button>
+      <h1 className="ml-4 text-xl">{getPageTitle()}</h1>
     </header>
+  );
+};
+
+const AppContent = ({ isSidebarOpen, toggleSidebar }) => {
+  return (
+    <div className="bg-black min-h-screen text-white">
+      <Header toggleSidebar={toggleSidebar} />
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <Routes>
+        <Route path="/" element={<Information />} />
+        <Route path="/be-stochastic" element={<BeStochastic />} />
+      </Routes>
+    </div>
   );
 };
 
@@ -56,14 +82,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="bg-black min-h-screen text-white">
-        <Header toggleSidebar={toggleSidebar} />
-        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <Routes>
-          <Route path="/" element={<Information />} />
-          <Route path="/be-stochastic" element={<BeStochastic />} />
-        </Routes>
-      </div>
+      <AppContent isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
     </Router>
   );
 };
