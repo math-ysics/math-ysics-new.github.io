@@ -93,7 +93,7 @@ const Header = ({ toggleSidebar }) => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 p-5 flex items-center justify-between z-[50] transition-all duration-300 ${
+    <header className={`fixed top-0 left-0 right-0 p-4 flex items-center justify-between z-[50] transition-all duration-300 ${
       isScrolled 
         ? 'bg-black/40 backdrop-blur-sm' 
         : 'bg-black/50'
