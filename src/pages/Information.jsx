@@ -1,4 +1,6 @@
 import React from 'react';
+import 'katex/dist/katex.min.css';
+import { InlineMath } from 'react-katex';
 
 const Information = () => {
   return (
@@ -7,9 +9,6 @@ const Information = () => {
         <div className="w-2/5 border-r border-white p-4">
           <p className="leading-relaxed text-gray-200">
             I am a second-year undergraduate student in the <a href="https://cms.caltech.edu/" className="underline decoration-white">Department of Computing + Mathematical Sciences</a> at the <a href="https://www.caltech.edu/" className="underline decoration-white">California Institute of Technology</a>. My research interests are in automated machine learning, language models, dimensionality reduction, and scientific applications of AI. I also enjoy statistical manifolds, computational physics, and theoretical astrophysics.
-          </p>
-          <p className="leading-relaxed text-gray-200 mt-4">
-            Prior to the Institute, my research aimed to optimize tornadogenesis and parameter-space constructions (2019-2022), with particular focus on theoretical hodograph structures; I accumulated extensive experience with NWPs across spatiotemporal magnitudes, from microphysics to synoptic structures and teleconnections, spanning long-range GCMs to mesoscale rapid refresh models in both research and forecasting (2017-).
           </p>
           <p className="leading-relaxed text-gray-200 mt-4">
             I also dabbled in some pre-college competitions (USA Team Selection Tests for <a href="https://en.wikipedia.org/wiki/International_Science_Olympiad" className="underline decoration-white">International Science Olympiads</a>, the <a href="https://en.wikipedia.org/wiki/Regeneron_Science_Talent_Search" className="underline decoration-white">Science Talent Search</a>, the <a href="https://en.wikipedia.org/wiki/National_Science_Bowl" className="underline decoration-white">National Science Bowl</a> National Finals, and the <a href="https://en.wikipedia.org/wiki/Science_Olympiad" className="underline decoration-white">Science Olympiad</a> National Tournament).
@@ -49,14 +48,42 @@ const Information = () => {
       <div className="flex border-t border-white">
         <div className="w-2/5 border-r border-white p-4">
           <p className="leading-relaxed text-gray-200">
-            Placeholder.
+            <span className="text-[#e41937] italic">Foundation models for proton-proton collisions at <InlineMath math="\sqrt{s}"/> = 13.6 TeV</span>
           </p>
+          <p className="leading-relaxed text-gray-200 mt-2">
+            <a href="https://united-states.cern/" className="text-[#e41937] italic underline decoration-[#e41937]">united-states.cern</a> • <a href="https://cms.fnal.gov/" className="text-[#e41937] italic underline decoration-[#e41937]">cms.fnal.gov</a>
+          </p>
+          <p className="leading-relaxed text-gray-200 mt-4">
+            Research Supervisors:
+          </p>
+          <ul className="list-none mt-2 text-gray-200">
+            <li className="mb-2">
+              <a href="https://scholar.google.com/citations?user=Hi8Bc4QAAAAJ" className="underline decoration-white">Raghav Kansal</a>
+              <br />
+              <span className="italic">AI/Schmidt Postdoctoral Scholar Research Associate in Physics, Caltech</span>
+            </li>
+            <li className="mb-2">
+              <a href="https://scholar.google.com/citations?user=ZTqZD80AAAAJ" className="underline decoration-white">Jennifer Ngadiuba</a>
+              <br />
+              <span className="italic">Wilson Fellow, Fermi National Accelerator Laboratory</span>
+            </li>
+            <li className="mb-2">
+              <a href="https://scholar.google.com/citations?user=UrL7wJ0AAAAJ" className="underline decoration-white">Si Xie</a>
+              <br />
+              <span className="italic">Assistant Research Professor of Physics, Caltech; Scientist, Fermi National Accelerator Laboratory</span>
+            </li>
+            <li>
+              <a href="https://www.semanticscholar.org/author/M.-Spiropulu/6115015" className="underline decoration-white">Maria Spiropulu</a>
+              <br />
+              <span className="italic">Shang-Yi Ch'en Professor of Physics, Caltech</span>
+            </li>
+          </ul>
         </div>
         <div className="w-3/5 p-4 flex items-center justify-center">
-          <div className="relative w-full h-[400px]">
+          <div className="relative w-full h-full">
             <img 
-              src="/images/placeholder1.jpg"
-              alt="Research visualization"
+              src="/images/13.6.jpg"
+              alt="High-energy particle collision visualization from LHC experiments"
               className="absolute inset-0 w-full h-full object-cover rounded-lg"
             />
           </div>
@@ -64,33 +91,60 @@ const Information = () => {
       </div>
       <div className="flex border-t border-white">
         <div className="w-3/5 border-r border-white p-4 flex items-center justify-center">
-          <div className="relative w-full h-[400px]">
+          <div className="relative w-full h-full flex items-center justify-center">
             <img 
-              src="/images/placeholder2.jpg"
-              alt="Physics visualization"
-              className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              src="/images/vorticity_evolution.gif"
+              alt="Animated visualization of vorticity evolution in fluid dynamics simulation"
+              className="w-full rounded-lg"
             />
           </div>
         </div>
         <div className="w-2/5 p-4">
           <p className="leading-relaxed text-gray-200">
-            Placeholder.
+            <span className="text-[#e41937] italic">Scale-Consistent Learning with Scale-Informed Neural Operators</span>
           </p>
+          <p className="leading-relaxed text-gray-200 mt-2">
+            <a href="http://tensorlab.cms.caltech.edu/users/anima/" className="text-[#e41937] italic underline decoration-[#e41937]">tensorlab.cms.caltech.edu</a>
+          </p>
+          <p className="leading-relaxed text-gray-200 mt-4">
+            Research Supervisors:
+          </p>
+          <ul className="list-none mt-2 text-gray-200">
+            <li className="mb-2">
+              <a href="https://scholar.google.com/citations?user=RdeqpiAAAAAJ" className="underline decoration-white">Zongyi Li</a>
+              <br />
+              <span className="italic">PhD, Computing + Mathematical Sciences, Caltech</span>
+            </li>
+            <li>
+              <a href="https://scholar.google.com/citations?user=bEcLezcAAAAJ" className="underline decoration-white">Anima Anandkumar</a>
+              <br />
+              <span className="italic">Bren Professor of Computing, Caltech</span>
+            </li>
+          </ul>
         </div>
       </div>
       <div className="flex border-t border-white">
         <div className="w-2/5 border-r border-white p-4">
-          <div className="border-l-4 border-white pl-4">
-            <p className="leading-relaxed text-gray-200 italic">
-              Placeholder.
-            </p>
-          </div>
+          <p className="leading-relaxed text-gray-200">
+            <span className="text-[#e41937] italic">Ramifications of Low-Level Backing on Supercell Intensity and Longevity</span>
+          </p>
+          <p className="leading-relaxed text-gray-200 mt-4">
+            Research Supervisors:
+          </p>
+          <ul className="list-none mt-2 text-gray-200">
+            <li>
+              None / Sole Author
+            </li>
+          </ul>
+          <p className="leading-relaxed text-gray-200 mt-4">
+            Prior to the Institute, my research aimed to optimize tornadogenesis and parameter-space constructions (2019-2022), with particular focus on theoretical hodograph structures; I accumulated extensive experience with NWPs across spatiotemporal magnitudes, from microphysics to synoptic structures and teleconnections, spanning long-range GCMs to mesoscale rapid refresh models in both research and forecasting (2017-).
+          </p>
         </div>
         <div className="w-3/5 p-4 flex items-center justify-center">
-          <div className="relative w-full h-[400px]">
+          <div className="relative w-full h-full">
             <img 
-              src="/images/placeholder3.jpg"
-              alt="Scientific inspiration"
+              src="/images/eyecandy.jpg"
+              alt="Tornadogenesis simulation"
               className="absolute inset-0 w-full h-full object-cover rounded-lg"
             />
           </div>
