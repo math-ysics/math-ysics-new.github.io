@@ -50,12 +50,36 @@ const Header = ({ toggleSidebar }) => {
     }
   };
 
+  const links = [
+    { name: 'Caltech', url: 'https://www.caltech.edu' },
+    { name: 'Google Scholar', url: 'https://scholar.google.com' },
+    { name: 'GitHub', url: 'https://github.com' },
+    { name: 'Hugging Face', url: 'https://huggingface.co' },
+    { name: 'Codeforces', url: 'https://codeforces.com' },
+    { name: 'LinkedIn', url: 'https://linkedin.com' }
+  ];
+
   return (
-    <header className="fixed top-0 left-0 right-0 bg-black p-5 flex items-center">
-      <button onClick={toggleSidebar} className="text-white">
-        <Menu className="w-6 h-6" />
-      </button>
-      <h1 className="ml-4 text-xl">{getPageTitle()}</h1>
+    <header className="fixed top-0 left-0 right-0 bg-black p-5 flex items-center justify-between z-50">
+      <div className="flex items-center">
+        <button onClick={toggleSidebar} className="text-white">
+          <Menu className="w-6 h-6" />
+        </button>
+        <h1 className="ml-4 text-xl">{getPageTitle()}</h1>
+      </div>
+      <div className="flex space-x-6">
+        {links.map((link, index) => (
+          <a
+            key={index}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-300 transition-colors duration-200"
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
     </header>
   );
 };
