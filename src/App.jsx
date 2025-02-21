@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import Lenis from '@studio-freight/lenis';
 import Information from './pages/Information';
 import BeStochastic from './pages/BeStochastic';
 
@@ -85,6 +86,30 @@ const Header = ({ toggleSidebar }) => {
 };
 
 const AppContent = ({ isSidebarOpen, toggleSidebar }) => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 0.8,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      smoothTouch: true,
+      touchMultiplier: 1.5,
+      wheelMultiplier: 0.8,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <div className="bg-black min-h-screen text-white">
       <Header toggleSidebar={toggleSidebar} />
@@ -97,12 +122,64 @@ const AppContent = ({ isSidebarOpen, toggleSidebar }) => {
   );
 };
 
+// Add global styles at the end of the file
+const globalStyles = `
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+  }
+
+  /* For Chrome/Safari/Edge */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.5);
+    border-radius: 4px;
+    border: transparent;
+  }
+`;
+
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  // Add style tag to head
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = globalStyles;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
 
   return (
     <Router>
