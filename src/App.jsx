@@ -40,6 +40,18 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
 const Header = ({ toggleSidebar }) => {
   const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const getPageTitle = () => {
     switch(location.pathname) {
       case '/':
@@ -61,14 +73,23 @@ const Header = ({ toggleSidebar }) => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-black p-5 flex items-center justify-between z-50">
-      <div className="flex items-center">
+    <header className={`fixed top-0 left-0 right-0 p-5 flex items-center justify-between z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-black/40 backdrop-blur-sm' 
+        : 'bg-black/50'
+    }`}>
+      <div className="absolute inset-0" style={{
+        background: isScrolled
+          ? 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.15) 70%, rgba(0,0,0,0) 100%)'
+          : 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%)'
+      }}></div>
+      <div className="flex items-center relative z-10">
         <button onClick={toggleSidebar} className="text-white">
           <Menu className="w-6 h-6" />
         </button>
         <h1 className="ml-4 text-xl">{getPageTitle()}</h1>
       </div>
-      <div className="flex space-x-6">
+      <div className="flex space-x-6 relative z-10">
         {links.map((link, index) => (
           <a
             key={index}
