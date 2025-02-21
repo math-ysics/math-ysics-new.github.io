@@ -8,7 +8,7 @@ Run with ```npm install``` then ```npm run dev```.
 
 # Compile
 
-Compile with ```npm run build``` then touch ```dist/.nojekyll```. Then run ```npm run preview``` and ```npm install -g serve``` then ```serve -s dist```.
+Compile with ```npm run build``` then ```touch dist/.nojekyll```. Then run ```npm run preview``` and ```npm install -g serve``` then ```serve -s dist```.
 
 # Tailwind CSS + React + Vite Setup
 
