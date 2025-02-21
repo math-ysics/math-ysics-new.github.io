@@ -133,11 +133,11 @@ const Information = () => {
           </p>
           <ul className="list-none mt-2 text-gray-200">
             <li>
-              None / Sole Author
+              None/Sole Author
             </li>
           </ul>
           <p className="leading-relaxed text-gray-200 mt-4">
-            Prior to the Institute, my research aimed to optimize tornadogenesis and parameter-space constructions (2019-2022), with particular focus on theoretical hodograph structures (first / only high school student to present at the top conference in the field); I accumulated extensive experience with NWPs across spatiotemporal magnitudes, from microphysics to synoptic structures and teleconnections, spanning long-range GCMs to mesoscale rapid refresh models in both research and forecasting (2017-).
+            Prior to the Institute, my research aimed to optimize tornadogenesis and parameter-space constructions (2019-2022), with particular focus on theoretical hodograph structures (first/only high school student to present at the top conference in the field); I accumulated extensive experience with NWPs across spatiotemporal magnitudes, from microphysics to synoptic structures and teleconnections, spanning long-range GCMs to mesoscale rapid refresh models in both research and forecasting (2017-).
           </p>
         </div>
         <div className="w-3/5 p-4 flex items-center justify-center">
