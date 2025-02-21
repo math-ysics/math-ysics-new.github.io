@@ -160,7 +160,7 @@ const Information = () => {
         </div>
         <div className="w-1/5 p-4 flex items-center">
           <p className="leading-relaxed text-gray-200">
-            I am from <a href="https://nagoya-info.jp" className="underline decoration-white">Nagoya</a>.
+            I am from <a href="https://nagoya-info.jp" className="underline decoration-white">Nagoya (名古屋)</a>.
           </p>
         </div>
       </div>
