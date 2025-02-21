@@ -6,6 +6,10 @@ New website coming soon.
 
 Run with ```npm install``` then ```npm run dev```.
 
+# Compile
+
+Compile with ```npm run build``` then touch ```dist/.nojekyll```. Then run ```npm run preview``` and ```npm install -g serve``` then ```serve -s dist```.
+
 # Tailwind CSS + React + Vite Setup
 
 This project uses Tailwind CSS with React and Vite.
