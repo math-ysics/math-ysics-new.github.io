@@ -6,13 +6,13 @@ const Information = () => {
       <div className="flex h-1/2 border-b border-white">
         <div className="w-2/5 border-r border-white p-4">
           <p className="leading-relaxed text-gray-200">
-            I am a second-year undergraduate student in the Department of Computing + Mathematical Sciences at the California Institute of Technology. My research interests are in automated machine learning, language models, dimensionality reduction, and scientific applications of AI. I also enjoy statistical manifolds, computational physics, and theoretical astrophysics.
+            I am a second-year undergraduate student in the <a href="https://cms.caltech.edu/" className="underline decoration-white">Department of Computing + Mathematical Sciences</a> at the <a href="https://www.caltech.edu/" className="underline decoration-white">California Institute of Technology</a>. My research interests are in automated machine learning, language models, dimensionality reduction, and scientific applications of AI. I also enjoy statistical manifolds, computational physics, and theoretical astrophysics.
           </p>
           <p className="leading-relaxed text-gray-200 mt-4">
             Prior to the Institute, my research aimed to optimize tornadogenesis and parameter-space constructions (2019-2022), with particular focus on theoretical hodograph structures; I accumulated extensive experience with NWPs across spatiotemporal magnitudes, from microphysics to synoptic structures and teleconnections, spanning long-range GCMs to mesoscale rapid refresh models in both research and forecasting (2017-).
           </p>
           <p className="leading-relaxed text-gray-200 mt-4">
-            I also dabbled in some pre-college competitions (USA Team Selection Tests for International Science Olympiads, the Science Talent Search, the National Science Bowl National Finals, and the Science Olympiad National Tournament).
+            I also dabbled in some pre-college competitions (USA Team Selection Tests for <a href="https://en.wikipedia.org/wiki/International_Science_Olympiad" className="underline decoration-white">International Science Olympiads</a>, the <a href="https://en.wikipedia.org/wiki/Regeneron_Science_Talent_Search" className="underline decoration-white">Science Talent Search</a>, the <a href="https://en.wikipedia.org/wiki/National_Science_Bowl" className="underline decoration-white">National Science Bowl</a> National Finals, and the <a href="https://en.wikipedia.org/wiki/Science_Olympiad" className="underline decoration-white">Science Olympiad</a> National Tournament).
           </p>
           <p className="leading-relaxed text-gray-200 mt-4 italic">
             One shall direct their correspondence to [first initial] + h + [last] + [at] + caltech + [dot] + edu.
