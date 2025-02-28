@@ -60,22 +60,17 @@ const Information = () => {
             <li className="mb-2">
               <a href="https://scholar.google.com/citations?user=Hi8Bc4QAAAAJ" className="underline decoration-white">Raghav Kansal</a>
               <br />
-              <span className="italic">AI/Schmidt Postdoctoral Scholar Research Associate in Physics, Caltech</span>
+              <span className="italic">AI/Schmidt Postdoctoral Scholar Research Associate in Physics, California Institute of Technology and Fermi National Accelerator Laboratory</span>
             </li>
             <li className="mb-2">
               <a href="https://scholar.google.com/citations?user=ZTqZD80AAAAJ" className="underline decoration-white">Jennifer Ngadiuba</a>
               <br />
-              <span className="italic">Wilson Fellow, Fermi National Accelerator Laboratory</span>
-            </li>
-            <li className="mb-2">
-              <a href="https://scholar.google.com/citations?user=UrL7wJ0AAAAJ" className="underline decoration-white">Si Xie</a>
-              <br />
-              <span className="italic">Assistant Research Professor of Physics, Caltech; Scientist, Fermi National Accelerator Laboratory</span>
+              <span className="italic">Wilson Fellow, Fermi National Accelerator Laboratory; Postdoctoral Researcher, California Institute of Technology</span>
             </li>
             <li>
               <a href="https://www.semanticscholar.org/author/M.-Spiropulu/6115015" className="underline decoration-white">Maria Spiropulu</a>
               <br />
-              <span className="italic">Shang-Yi Ch'en Professor of Physics, Caltech</span>
+              <span className="italic">Shang-Yi Ch'en Professor of Physics, California Institute of Technology</span>
             </li>
           </ul>
         </div>
@@ -113,12 +108,12 @@ const Information = () => {
             <li className="mb-2">
               <a href="https://scholar.google.com/citations?user=RdeqpiAAAAAJ" className="underline decoration-white">Zongyi Li</a>
               <br />
-              <span className="italic">PhD, Computing + Mathematical Sciences, Caltech</span>
+              <span className="italic">PhD, Computing + Mathematical Sciences, California Institute of Technology</span>
             </li>
             <li>
               <a href="https://scholar.google.com/citations?user=bEcLezcAAAAJ" className="underline decoration-white">Anima Anandkumar</a>
               <br />
-              <span className="italic">Bren Professor of Computing, Caltech</span>
+              <span className="italic">Bren Professor of Computing, California Institute of Technology</span>
             </li>
           </ul>
         </div>
@@ -137,7 +132,7 @@ const Information = () => {
             </li>
           </ul>
           <p className="leading-relaxed text-gray-200 mt-4">
-            Prior to the Institute, my research aimed to optimize tornadogenesis and parameter-space constructions (2019-2022), with particular focus on theoretical hodograph structures (first/only high school student to present at the top conference in the field); I accumulated extensive experience with NWPs across spatiotemporal magnitudes, from microphysics to synoptic structures and teleconnections, spanning long-range GCMs to mesoscale rapid refresh models in both research and forecasting (2017-).
+            Prior to the Institute, my research aimed to optimize tornadogenesis and parameter-space constructions (2019-2022), with particular focus on theoretical hodograph structures; I accumulated extensive experience with NWPs across spatiotemporal magnitudes, from microphysics to synoptic structures and teleconnections, spanning long-range GCMs to mesoscale rapid refresh models in both research and forecasting (2017-).
           </p>
         </div>
         <div className="w-3/5 p-4 flex items-center justify-center">
