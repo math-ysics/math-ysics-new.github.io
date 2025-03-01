@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
+import { useLocation } from 'react-router-dom';
 
 const Information = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle anchor links with smooth scrolling
+    if (location.hash) {
+      const id = location.hash.substring(1); // remove the # character
+      const element = document.getElementById(id);
+      if (element) {
+        // Wait a bit for the page to fully render
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    } else {
+      // If no hash, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
+
   return (
-    <div className="pt-16 flex flex-col min-h-screen">
+    <div className="pt-24 flex flex-col min-h-screen">
+      {/* Information Title */}
+      <div className="mt-8 mb-16 flex justify-center flex-col items-center">
+        <h1 className="text-8xl text-white">Information.</h1>
+        <div className="w-24 h-1 bg-[#e41937] mt-4"></div>
+      </div>
+      
       <div className="flex h-1/2 border-b border-white">
         <div className="w-2/5 border-r border-white p-4">
           <p className="leading-relaxed text-gray-200">
@@ -27,7 +53,7 @@ const Information = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-1/2">
+      <div className="flex h-1/2 border-b border-white">
         <div className="w-3/5 border-r border-white p-4 flex items-center justify-center">
           <div className="relative w-full h-full">
             <img 
@@ -45,118 +71,134 @@ const Information = () => {
           </div>
         </div>
       </div>
-      <div className="flex border-t border-white">
-        <div className="w-2/5 border-r border-white p-4">
-          <p className="leading-relaxed text-gray-200">
-            <span className="text-[#e41937] italic">Foundation models for proton-proton collisions at <InlineMath math="\sqrt{s}"/> = 13.6 TeV</span>
-          </p>
-          <p className="leading-relaxed text-gray-200 mt-2">
-            <a href="https://united-states.cern/" className="text-[#e41937] italic underline decoration-[#e41937]">united-states.cern</a> • <a href="https://cms.fnal.gov/" className="text-[#e41937] italic underline decoration-[#e41937]">cms.fnal.gov</a>
-          </p>
-          <p className="leading-relaxed text-gray-200 mt-4">
-            Research Supervisors:
-          </p>
-          <ul className="list-none mt-2 text-gray-200">
-            <li className="mb-2">
-              <a href="https://scholar.google.com/citations?user=Hi8Bc4QAAAAJ" className="underline decoration-white">Raghav Kansal</a>
-              <br />
-              <span className="italic">AI/Schmidt Postdoctoral Scholar Research Associate in Physics, California Institute of Technology and Fermi National Accelerator Laboratory</span>
-            </li>
-            <li className="mb-2">
-              <a href="https://scholar.google.com/citations?user=ZTqZD80AAAAJ" className="underline decoration-white">Jennifer Ngadiuba</a>
-              <br />
-              <span className="italic">Wilson Fellow, Fermi National Accelerator Laboratory; Postdoctoral Researcher, California Institute of Technology</span>
-            </li>
-            <li>
-              <a href="https://www.semanticscholar.org/author/M.-Spiropulu/6115015" className="underline decoration-white">Maria Spiropulu</a>
-              <br />
-              <span className="italic">Shang-Yi Ch'en Professor of Physics, California Institute of Technology</span>
-            </li>
-          </ul>
+      <div className="flex flex-col max-w-5xl mx-auto">
+        {/* Research Section Title */}
+        <div className="mt-16 mb-16 flex justify-center flex-col items-center">
+          <h1 className="text-8xl text-white">Research.</h1>
+          <div className="w-24 h-1 bg-[#e41937] mt-4"></div>
         </div>
-        <div className="w-3/5 p-4 flex items-center justify-center">
-          <div className="relative w-full h-full">
+        
+        {/* CERN CMS/Fermilab Section */}
+        <div className="mb-16" id="cern-cms-fermilab">
+          <div className="relative w-full h-[35vh] overflow-hidden rounded-lg">
             <img 
               src="/images/13.6.jpg"
               alt="High-energy particle collision visualization from LHC experiments"
-              className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover"
             />
           </div>
+          <div className="mt-6">
+            <h2 className="text-4xl text-white">Foundation models for proton-proton collisions at <InlineMath math="\sqrt{s}"/> = 13.6 TeV</h2>
+            <p className="mt-2 text-[#e41937] italic">
+              <a href="https://united-states.cern/" className="text-[#e41937] italic underline decoration-[#e41937]">united-states.cern</a> • <a href="https://cms.fnal.gov/" className="text-[#e41937] italic underline decoration-[#e41937]">cms.fnal.gov</a>
+            </p>
+          </div>
+          
+          <div className="mt-8 prose prose-lg dark:prose-invert">
+            <h3 className="text-2xl mb-4 text-white">Research Supervisors</h3>
+            <ul className="list-none mt-2 text-gray-200 mb-4">
+              <li className="mb-4">
+                <a href="https://scholar.google.com/citations?user=Hi8Bc4QAAAAJ" className="underline decoration-white text-xl">Raghav Kansal</a>
+                <br />
+                <span className="italic">AI/Schmidt Postdoctoral Scholar Research Associate in Physics, California Institute of Technology and Fermi National Accelerator Laboratory</span>
+              </li>
+              <li className="mb-4">
+                <a href="https://scholar.google.com/citations?user=ZTqZD80AAAAJ" className="underline decoration-white text-xl">Jennifer Ngadiuba</a>
+                <br />
+                <span className="italic">Wilson Fellow, Fermi National Accelerator Laboratory; Postdoctoral Researcher, California Institute of Technology</span>
+              </li>
+              <li className="mb-4">
+                <a href="https://www.semanticscholar.org/author/M.-Spiropulu/6115015" className="underline decoration-white text-xl">Maria Spiropulu</a>
+                <br />
+                <span className="italic">Shang-Yi Ch'en Professor of Physics, California Institute of Technology</span>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div className="flex border-t border-white">
-        <div className="w-3/5 border-r border-white p-4 flex items-center justify-center">
-          <div className="relative w-full h-full flex items-center justify-center">
+        
+        {/* Tensorlab Section */}
+        <div className="mb-16" id="tensorlab">
+          <div className="relative w-full h-[35vh] overflow-hidden rounded-lg bg-gradient-to-r from-teal-500 to-blue-500 flex items-center justify-center">
             <img 
               src="/images/vorticity_evolution.gif"
               alt="Animated visualization of vorticity evolution in fluid dynamics simulation"
-              className="w-full rounded-lg"
+              className="w-full max-h-full object-scale-down"
+              style={{ maxHeight: "90%" }}
             />
           </div>
+          <div className="mt-6">
+            <h2 className="text-4xl text-white">Scale-Consistent Learning with Scale-Informed Neural Operators</h2>
+            <p className="mt-2 text-[#e41937] italic">
+              <a href="http://tensorlab.cms.caltech.edu/users/anima/" className="text-[#e41937] italic underline decoration-[#e41937]">tensorlab.cms.caltech.edu</a>
+            </p>
+          </div>
+          
+          <div className="mt-8 prose prose-lg dark:prose-invert">
+            <h3 className="text-2xl mb-4 text-white">Research Supervisors</h3>
+            <ul className="list-none mt-2 text-gray-200 mb-4">
+              <li className="mb-4">
+                <a href="https://scholar.google.com/citations?user=RdeqpiAAAAAJ" className="underline decoration-white text-xl">Zongyi Li</a>
+                <br />
+                <span className="italic">PhD, Computing + Mathematical Sciences, California Institute of Technology</span>
+              </li>
+              <li className="mb-4">
+                <a href="https://scholar.google.com/citations?user=bEcLezcAAAAJ" className="underline decoration-white text-xl">Anima Anandkumar</a>
+                <br />
+                <span className="italic">Bren Professor of Computing, California Institute of Technology</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="w-2/5 p-4">
-          <p className="leading-relaxed text-gray-200">
-            <span className="text-[#e41937] italic">Scale-Consistent Learning with Scale-Informed Neural Operators</span>
-          </p>
-          <p className="leading-relaxed text-gray-200 mt-2">
-            <a href="http://tensorlab.cms.caltech.edu/users/anima/" className="text-[#e41937] italic underline decoration-[#e41937]">tensorlab.cms.caltech.edu</a>
-          </p>  
-          <p className="leading-relaxed text-gray-200 mt-4">
-            Research Supervisors:
-          </p>
-          <ul className="list-none mt-2 text-gray-200">
-            <li className="mb-2">
-              <a href="https://scholar.google.com/citations?user=RdeqpiAAAAAJ" className="underline decoration-white">Zongyi Li</a>
-              <br />
-              <span className="italic">PhD, Computing + Mathematical Sciences, California Institute of Technology</span>
-            </li>
-            <li>
-              <a href="https://scholar.google.com/citations?user=bEcLezcAAAAJ" className="underline decoration-white">Anima Anandkumar</a>
-              <br />
-              <span className="italic">Bren Professor of Computing, California Institute of Technology</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="flex border-t border-white">
-        <div className="w-2/5 border-r border-white p-4">
-          <p className="leading-relaxed text-gray-200">
-            <span className="text-[#e41937] italic">Ramifications of Low-Level Backing on Supercell Intensity and Longevity</span>
-          </p>
-          <p className="leading-relaxed text-gray-200 mt-4">
-            Research Supervisors:
-          </p>
-          <ul className="list-none mt-2 text-gray-200">
-            <li>
-              None/Sole Author
-            </li>
-          </ul>
-          <p className="leading-relaxed text-gray-200 mt-4">
-            Prior to the Institute, my research aimed to optimize tornadogenesis and parameter-space constructions (2019-2022), with particular focus on theoretical hodograph structures; I accumulated extensive experience with NWPs across spatiotemporal magnitudes, from microphysics to synoptic structures and teleconnections, spanning long-range GCMs to mesoscale rapid refresh models in both research and forecasting (2017-).
-          </p>
-        </div>
-        <div className="w-3/5 p-4 flex items-center justify-center">
-          <div className="relative w-full h-full">
+        
+        {/* Tornadogenesis Section */}
+        <div className="mb-4" id="tornadogenesis">
+          <div className="relative w-full h-[35vh] overflow-hidden rounded-lg">
             <img 
               src="/images/eyecandy.jpg"
               alt="Tornadogenesis simulation"
-              className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover"
             />
           </div>
+          <div className="mt-6">
+            <h2 className="text-4xl text-white">Ramifications of Low-Level Backing on Supercell Intensity and Longevity</h2>
+          </div>
+          
+          <div className="mt-8 prose prose-lg dark:prose-invert">
+            <h3 className="text-2xl mb-4 text-white">Research Supervisors</h3>
+            <ul className="list-none mt-2 text-gray-200 mb-4">
+              <li className="mb-4">
+                None/Sole Author
+              </li>
+            </ul>
+            
+            <h3 className="text-2xl mb-4 text-white">Description</h3>
+            <p className="text-gray-200 mb-6">
+              Prior to the Institute, my research aimed to optimize tornadogenesis and parameter-space constructions (2019-2022), with particular focus on theoretical hodograph structures; I accumulated extensive experience with NWPs across spatiotemporal magnitudes, from microphysics to synoptic structures and teleconnections, spanning long-range GCMs to mesoscale rapid refresh models in both research and forecasting (2017-).
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="flex border-t border-white">
-        <div className="w-4/5 border-r border-white p-4">
-          <img 
-            src="/images/nagoya.jpg"
-            alt="Nagoya cityscape"
-            className="w-full object-cover rounded-lg"
-          />
+        
+        {/* Nagoya Section Title */}
+        <div className="mt-0 mb-12 flex justify-center flex-col items-center">
+          <h1 className="text-8xl text-white">Nagoya.</h1>
+          <div className="w-24 h-1 bg-[#e41937] mt-4"></div>
         </div>
-        <div className="w-1/5 p-4 flex items-center">
-          <p className="leading-relaxed text-gray-200">
-            I am from <a href="https://nagoya-info.jp" className="underline decoration-white">Nagoya (名古屋)</a>.
-          </p>
+        
+        {/* Nagoya Section */}
+        <div className="mb-16" id="nagoya">
+          <div className="relative w-full h-[50vh] overflow-hidden rounded-lg">
+            <img 
+              src="/images/nagoya.jpg"
+              alt="Nagoya cityscape"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="mt-6">
+            <h2 className="text-4xl text-white">I am from Nagoya (名古屋)</h2>
+            <p className="mt-2 text-[#e41937] italic">
+              <a href="https://nagoya-info.jp" className="text-[#e41937] italic underline decoration-[#e41937]">nagoya-info.jp</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>

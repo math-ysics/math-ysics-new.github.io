@@ -8,6 +8,9 @@ import BeStochastic from './pages/BeStochastic';
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const menuItems = [
     { title: 'Information', link: '/' },
+    { title: 'CERN CMS/Fermilab', link: '/#cern-cms-fermilab' },
+    { title: 'Tensorlab', link: '/#tensorlab' },
+    { title: 'Tornadogenesis', link: '/#tornadogenesis' },
     { title: 'Be Stochastic', link: '/be-stochastic' }
   ];
 
@@ -16,6 +19,16 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       <button onClick={toggleSidebar} className="fixed top-5 left-5 text-white z-[60]">
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
+      
+      {/* Overlay to close sidebar when clicking outside */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 z-[54]" 
+          onClick={toggleSidebar}
+          aria-hidden="true"
+        />
+      )}
+      
       <div 
         className={`fixed top-0 left-0 h-screen w-64 bg-black/40 backdrop-blur-sm transition-all duration-300 ease-in-out transform z-[55]
           ${isOpen 
@@ -41,13 +54,13 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                     transitionDelay: isOpen ? `${index * 100}ms` : '0ms'
                   }}
                 >
-                  <Link 
-                    to={item.link} 
+                  <a 
+                    href={item.link} 
                     className="hover:text-gray-300 transition-colors duration-200"
                     onClick={toggleSidebar}
                   >
                     {item.title}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -79,7 +92,7 @@ const Header = ({ toggleSidebar }) => {
       case '/be-stochastic':
         return 'Be Stochastic';
       default:
-        return '';
+        return 'Information';
     }
   };
 
@@ -104,7 +117,12 @@ const Header = ({ toggleSidebar }) => {
           : 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%)'
       }}></div>
       <div className="flex items-center relative z-10 ml-16">
-        <h1 className="text-xl">{getPageTitle()}</h1>
+        <h1 
+          className="text-xl cursor-pointer hover:text-gray-300 transition-colors duration-200 flex items-center" 
+          onClick={toggleSidebar}
+        >
+          {getPageTitle()}
+        </h1>
       </div>
       <div className="flex space-x-6 relative z-10">
         {links.map((link, index) => (
