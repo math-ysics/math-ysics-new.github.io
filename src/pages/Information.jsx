@@ -8,12 +8,14 @@ import { useRef } from 'react';
 // ScrollReveal component for triggering animations on scroll
 const ScrollReveal = ({ children, delay = 0.2, duration = 0.8, threshold = 0.1 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: threshold });
+  const isInView = useInView(ref, { once: false, amount: threshold });
   const controls = useAnimation();
   
   useEffect(() => {
     if (isInView) {
       controls.start('visible');
+    } else {
+      controls.start('hidden');
     }
   }, [isInView, controls]);
   
@@ -23,7 +25,14 @@ const ScrollReveal = ({ children, delay = 0.2, duration = 0.8, threshold = 0.1 }
       initial="hidden"
       animate={controls}
       variants={{
-        hidden: { opacity: 0, y: 50 },
+        hidden: { 
+          opacity: 0, 
+          y: 50,
+          transition: {
+            duration: duration * 0.5, // Faster reset animation
+            ease: [0.22, 1, 0.36, 1]
+          }
+        },
         visible: { 
           opacity: 1, 
           y: 0,
@@ -139,7 +148,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full h-[35vh] overflow-hidden rounded-lg"
             >
@@ -153,7 +162,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6"
             >
@@ -166,7 +175,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 prose prose-lg dark:prose-invert"
             >
@@ -198,7 +207,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full h-[35vh] overflow-hidden rounded-lg bg-gradient-to-r from-teal-500 to-blue-500 flex items-center justify-center"
             >
@@ -213,7 +222,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6"
             >
@@ -226,7 +235,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 prose prose-lg dark:prose-invert"
             >
@@ -253,7 +262,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full h-[35vh] overflow-hidden rounded-lg"
             >
@@ -267,7 +276,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6"
             >
@@ -277,7 +286,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="mt-8 prose prose-lg dark:prose-invert"
             >
@@ -305,7 +314,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full h-[50vh] overflow-hidden rounded-lg"
             >
@@ -319,7 +328,7 @@ const Information = () => {
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="mt-6"
             >
