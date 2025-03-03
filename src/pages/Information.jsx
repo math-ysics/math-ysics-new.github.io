@@ -192,7 +192,7 @@ const Information = () => {
                   <span className="italic">Wilson Fellow, Fermi National Accelerator Laboratory; Postdoctoral Researcher, California Institute of Technology</span>
                 </li>
                 <li className="mb-4">
-                  <a href="https://www.semanticscholar.org/author/M.-Spiropulu/6115015" className="underline decoration-white text-xl">Maria Spiropulu</a>
+                  <a href="https://inspirehep.net/authors/987865" className="underline decoration-white text-xl">Maria Spiropulu</a>
                   <br />
                   <span className="italic">Shang-Yi Ch'en Professor of Physics, California Institute of Technology</span>
                 </li>
