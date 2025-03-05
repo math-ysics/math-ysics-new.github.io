@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Lenis from '@studio-freight/lenis';
 import Information from './pages/Information';
 import BeStochastic from './pages/BeStochastic';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const menuItems = [
-    { title: 'Information', link: '/' },
-    { title: 'CERN CMS/Fermilab', link: '/#cern-cms-fermilab' },
-    { title: 'Tensorlab', link: '/#tensorlab' },
-    { title: 'Tornadogenesis', link: '/#tornadogenesis' },
-    { title: 'Be Stochastic', link: '/be-stochastic' }
+    { title: 'Information', link: '#/' },
+    { title: 'CERN CMS/Fermilab', link: '#/#cern-cms-fermilab' },
+    { title: 'Tensorlab', link: '#/#tensorlab' },
+    { title: 'Tornadogenesis', link: '#/#tornadogenesis' },
+    { title: 'Be Stochastic', link: '#/be-stochastic' }
   ];
 
   return (
@@ -86,13 +86,14 @@ const Header = ({ toggleSidebar }) => {
   }, []);
 
   const getPageTitle = () => {
-    switch(location.pathname) {
-      case '/':
-        return 'Information';
-      case '/be-stochastic':
-        return 'Be Stochastic';
-      default:
-        return 'Information';
+    const path = location.pathname;
+    
+    if (path === '/' || path === '') {
+      return 'Information';
+    } else if (path === '/be-stochastic') {
+      return 'Be Stochastic';
+    } else {
+      return 'Information';
     }
   };
 

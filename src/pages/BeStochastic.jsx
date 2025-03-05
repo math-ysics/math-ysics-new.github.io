@@ -13,6 +13,21 @@ const BeStochastic = () => {
           </div>
           <div className="space-y-16 mt-16">
             <div>
+              <h2 className="text-4xl mb-8 text-white">Entry #8. On my choice of computer science as a major.</h2>
+              <div className="prose prose-lg dark:prose-invert mx-auto">
+                <p className="text-gray-200 mb-6">
+                  The path that led me to computer science is one of serendipity and curiosity, rather than early exposure. Prior to high school, my interactions with technology were limited and often clandestine—specifically, my parents were strict regarding computer usage, so they would usually watch me. I didn't have the password to the first computer that I used, which was a Windows 7 desktop (OptiPlex, i5-4590). On rare occasions, I was able to do my own little things. For instance, in 6th grade, I secretly took a USB stick and burned ophcrack onto it (rainbow tables). I used this to obtain the password for the Windows 7 system. Later on, I cared less about obtaining and more about saving time, so I ended up with chntpw as my main tool (registry editor) on a Windows 8.1 laptop (i5-42xxU). I did this to play games as a random thing on the side, since the vast majority of my free time was spent learning tornado physics. In elementary school, my parents would occasionally allow me to play games on an iPod Touch. I would usually find where they hid it, although I used a workaround a few times by ringing it with Find My iPhone on the rare occasions it was not shut down.
+                </p>
+                <p className="text-gray-200 mb-6">
+                  My formal introduction to programming came through Swift Playgrounds in 6th grade. My magnet class was fortunate enough to be noticed by Apple, which issued iPads as part of an education system grant that my underfunded rural middle school was lucky to receive. Consequently, we were all assigned to use Swift Playgrounds as part of the deal. I remember finishing the app in a rather short amount of time, so I ended up not doing much in that class. I didn't engage in any further coding until 9th grade when I took AP CSP. While I found the projects fun, I didn't code again until my first year of college.
+                </p>
+                <p className="text-gray-200">
+                  Coming into college, I felt like computer science was my weakest area in STEM, which was another reason why I chose to major in it. Additionally, I read into statistical learning in the latter half of 12th grade, and I really enjoyed that. Quantifying things from a statistical perspective has always felt natural to me, so statistical learning provided a satisfying sense of closure. I didn't get into LLMs until around the time when GPT-4 Turbo was in preview via the API.
+                </p>
+              </div>
+            </div>
+
+            <div>
               <h2 className="text-4xl mb-8 text-white">Entry #7. Why I don't watch movies.</h2>
               <div className="prose prose-lg dark:prose-invert mx-auto">
                 <p className="text-gray-200">
